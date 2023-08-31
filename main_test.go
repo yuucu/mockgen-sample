@@ -10,6 +10,7 @@ import (
 
 func TestExec(t *testing.T) {
 	ctrl := gomock.NewController(t)
+	defer ctrl.Finish()
 	mockRandom := random.NewMockIFRandom(ctrl)
 
 	mockRandom.EXPECT().Intn(10).Return(5)
